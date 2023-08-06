@@ -39,7 +39,7 @@
                                         投資
                                     @endif
                                 </td>
-                                <td>{{ $item->price }}</td>
+                                <td>{{ $item->price }}円</td>
                                 <td>{{ $item->detail }}</td>
                                 <td class="text-right">
                                     <form action="{{ url('items/' . $item->id) }}" method="POST">
