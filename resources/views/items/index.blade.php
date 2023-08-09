@@ -1,17 +1,17 @@
 @extends('adminlte::page')
 
-@section('title', 'アイテム一覧')
+@section('title', '商品価値一覧')
 
 @section('content_header')
-    <h1>アイテム一覧</h1>
+    <h1>商品一覧</h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between align-items-center">
-                <h3 class="card-title">アイテム一覧</h3>
-                <a href="{{ url('items/add') }}" class="btn btn-default">アイテム登録</a>
+                
+                <a href="{{ url('items/add') }}" class="btn btn-dark">商品登録</a>
             </div>
         </div>
         <div class="card-body">

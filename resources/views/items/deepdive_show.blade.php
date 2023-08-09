@@ -16,9 +16,9 @@
                 <div class="card-body">
                     @if ($items->count() > 0)
                         @foreach ($items as $item)
-                            <div class="card mb-3"> {{-- アイテムごとにカードを追加 --}}
+                            <div class="card mb-3"> {{-- 商品ごとにカードを追加 --}}
                                 <div class="card-header">
-                                    <h4 class="text-dark mb-3">アイテム名: {{ $item->name }}</h4>
+                                    <h4 class="text-dark mb-3">商品名: {{ $item->name }}</h4>
                                     <p>種別: 
                                         @if ($item->type === 0)
                                             よく分からない
