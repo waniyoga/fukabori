@@ -31,24 +31,20 @@
                             <tr>
                                 <td>{{ $item->name }}</td>
                                 <td>
-                                    @if ($item->type === 0)
-                                        よく分からない
-                                    @elseif ($item->type === 1)
-                                        消費
-                                    @elseif ($item->type === 2)
-                                        投資
-                                    @endif
+                                    <!-- 種別表示ロジック -->
                                 </td>
                                 <td>{{ $item->price }}円</td>
                                 <td>{{ $item->detail }}</td>
                                 <td class="text-right">
-                                    <form action="{{ url('items/' . $item->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">削除</button>
-                                    </form>
-                                    <a href="{{ route('items.deepdive', $item->id) }}" class="btn btn-primary">深堀</a>
-                                    <a href="{{ route('items.edit', $item->id) }}" class="btn btn-warning">編集</a>
+                                    @if (Auth::check() && Auth::user()->id === $item->user_id)
+                                        <form action="{{ url('items/' . $item->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">削除</button>
+                                        </form>
+                                        <a href="{{ route('items.deepdive', $item->id) }}" class="btn btn-primary">深堀</a>
+                                        <a href="{{ route('items.edit', $item->id) }}" class="btn btn-warning">編集</a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
