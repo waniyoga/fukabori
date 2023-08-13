@@ -28,15 +28,16 @@
                     </thead>
                     <tbody>
                         @foreach ($items as $item)
-                            <tr>
-                                <td>{{ $item->name }}</td>
-                                <td>
-                                    <!-- 種別表示ロジック -->
-                                </td>
-                                <td>{{ $item->price }}円</td>
-                                <td>{{ $item->detail }}</td>
-                                <td class="text-right">
-                                    @if (Auth::check() && Auth::user()->id === $item->user_id)
+                        <tr>
+                            <td>{{ $item->name }}</td>
+                            <td>
+                                <!-- 種別表示ロジック -->
+                            </td>
+                            <td>{{ $item->price }}円</td>
+                            <td>{{ $item->detail }}</td>
+                            <td class="text-right">
+                                @if (Auth::check())
+                                    @if (Auth::user()->isAdmin() || Auth::user()->id === $item->user_id)
                                         <form action="{{ url('items/' . $item->id) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
@@ -45,9 +46,11 @@
                                         <a href="{{ route('items.deepdive', $item->id) }}" class="btn btn-primary">深堀</a>
                                         <a href="{{ route('items.edit', $item->id) }}" class="btn btn-warning">編集</a>
                                     @endif
-                                </td>
-                            </tr>
-                        @endforeach
+                                @endif
+                            </td>
+                        </tr>
+                    @endforeach
+                    
                     </tbody>
                 </table>
             </div>

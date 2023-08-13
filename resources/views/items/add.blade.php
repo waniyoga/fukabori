@@ -4,6 +4,7 @@
 
 @section('content_header')
     <h1>商品登録</h1>
+    <h5>※個人が特定される内容は入力しないでください</h5>
 @stop
 
 @section('content')

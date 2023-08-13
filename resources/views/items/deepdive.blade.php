@@ -4,6 +4,7 @@
 
 @section('content_header')
     <h1>深堀</h1>
+    <h5>※個人が特定される内容は入力しないでください</h5>
 @stop
 
 @section('content')
@@ -18,27 +19,45 @@
                         @csrf
                         <div class="form-group">
                             <label>1. その商品のポジティブな要素を教えてください。</label>
-                            <textarea name="question_1" class="form-control"></textarea>
+                            <textarea name="question_1" class="form-control" required></textarea>
+                            @error('question_1')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label>2. その商品のネガティブな要素を教えてください</label>
-                            <input type="text" name="question_2" class="form-control">
+                            <input type="text" name="question_2" class="form-control" required>
+                            @error('question_2')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label>3. この商品を選んだ背景や理由について教えてください</label>
-                            <input type="text" name="question_3" class="form-control">
+                            <input type="text" name="question_3" class="form-control" required>
+                            @error('question_3')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label>4. この商品とあなたの関係性を言葉にしてみてください</label>
-                            <input type="text" name="question_4" class="form-control">
+                            <input type="text" name="question_4" class="form-control" required>
+                            @error('question_4')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label>5. この商品にあなただけの特別な名前をつけてください。</label>
-                            <textarea name="question_5" class="form-control"></textarea>
+                            <textarea name="question_5" class="form-control" required></textarea>
+                            @error('question_5')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label>6. この商品の開発者になったつもりで情熱的にオススメしてみてください</label>
-                            <textarea name="question_6" class="form-control"></textarea>
+                            <textarea name="question_6" class="form-control" required></textarea>
+                            @error('question_6')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-primary">回答を送信</button>
                     </form>

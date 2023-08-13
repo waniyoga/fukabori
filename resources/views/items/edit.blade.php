@@ -26,27 +26,39 @@
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name">購入した品</label>
-                            <input type="text" class="form-control" id="name" name="name" value="{{ $item->name }}">
+                            <input type="text" class="form-control" id="name" name="name" value="{{ $item->name }}" required>
+                            @error('name')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="type">種別</label>
-                            <select class="form-control" id="type" name="type">
+                            <select class="form-control" id="type" name="type" required>
                                 <option value="0" {{ $item->type === 0 ? 'selected' : '' }}>よく分からない</option>
                                 <option value="1" {{ $item->type === 1 ? 'selected' : '' }}>消費</option>
                                 <option value="2" {{ $item->type === 2 ? 'selected' : '' }}>投資</option>
                             </select>
+                            @error('type')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                         
 
                         <div class="form-group">
                             <label for="price">価格</label>
-                            <input type="number" name="price" class="form-control" id="price" value="{{ $item->price }}">
+                            <input type="number" name="price" class="form-control" id="price" value="{{ $item->price }}" required>
+                            @error('price')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="form-group">
                             <label for="detail">動機</label>
-                            <input type="text" class="form-control" id="detail" name="detail" value="{{ $item->detail }}">
+                            <input type="text" class="form-control" id="detail" name="detail" value="{{ $item->detail }}" required>
+                            @error('detail')
+                                <span class="text-danger">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
 
